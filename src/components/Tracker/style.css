@@ -1,0 +1,82 @@
+.tracker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #515969;
+    border: 5px inset #2882A4;
+    border-radius: 8px;
+}
+
+.tracker-content {
+    padding: 15px;
+    min-height: 400px;
+    max-width: 300px;
+}
+
+.order {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.order--button {
+    background:linear-gradient(to bottom, #75bce0 5%, #186ca8 100%);
+    background-color:#75bce0;
+    border-radius:3px;
+    border: none;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:12px;
+    padding:5px 5px;
+    margin: 5px;
+    text-decoration:none;
+    outline: none;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 5px 0 15px;
+    font-size: 17px;
+    list-style-type: none;
+}
+
+.task-list_item {
+    padding: 5px 0 5px 0;
+}
+
+.task-list_name {
+    font-weight: bold;
+}
+
+.input {
+    padding: 0 5px 0 15px;
+}
+
+.input-field {
+    padding: 5px;
+    border: 2px solid #f2f4ed;
+    border-radius: 4px;
+    outline: none;
+}
+
+.input-title {
+    font-size: 18px;
+    padding: 0;
+    margin: 2px;
+}
+
+.inputValuePriority {
+    max-width: 50px;
+    margin-left: 10px;
+}
+
+.inputFormDescription {
+    height: 40px;
+    width: 200px;
+    margin: 10px 0 10px 0;
+    text-align: start;
+    resize: none;
+}
