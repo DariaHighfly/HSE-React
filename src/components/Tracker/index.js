@@ -84,6 +84,15 @@ export default class Index extends Component {
         this.setState({inputValuePriority: event.target.value});
     };
 
+    deleteItem = (event) => {
+        let array = [...this.state.tasks];
+        let index = array.findIndex((elem) => { return Number(elem.id) === Number(event.target.value)});
+        if (index !== -1) {
+            array.splice(index, 1);
+            this.setState({tasks: array});
+        }
+    };
+
     render() {
         return (
             <div className="tracker">
@@ -125,11 +134,18 @@ export default class Index extends Component {
                     <ul className="task-list">
                         {this.state.tasks.map((value) => {
                             return <li key={value.id} className="task-list_item">
-                                <span className="task-list_priority">
+                                <div>
+                                    <span className="task-list_priority">
                                     {value.priority} &#8226;
                                 </span>
-                                <span className="task-list_name"> {value.name}</span>
-                                <div className="task-list_description">{value.description}</div></li>
+                                    <span className="task-list_name"> {value.name}</span>
+                                    <div className="task-list_description">{value.description}</div>
+                                </div>
+                                <div>
+                                    <button className="task-list_item__delete-button"
+                                            value={value.id} onClick={this.deleteItem}> ✕ </button>
+                                </div>
+                            </li>
                         })}
                     </ul>
                 </div>
