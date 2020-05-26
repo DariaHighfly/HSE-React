@@ -11,9 +11,9 @@ export default class Index extends Component {
             tasks: [
                 {
                     id: 1,
-                    name: "Task name 1",
+                    name: "Task name 3",
                     description: "Task description Task description",
-                    priority: 3
+                    priority: 1
                 },
                 {
                     id: 2,
@@ -23,15 +23,14 @@ export default class Index extends Component {
                 },
                 {
                     id: 3,
-                    name: "Task name 3",
+                    name: "Task name 1",
                     description: "Task description Task description Task description Task description",
-                    priority: 1
+                    priority: 3
                 }
             ],
             inputValueName: "",
             inputValueDescription: "",
             inputValuePriority: "",
-            priorityLabels: [ " ", "!!!", "!!", "!"]
         };
     }
     sortArray = () => {
@@ -89,27 +88,50 @@ export default class Index extends Component {
         return (
             <div className="tracker">
                 <div className="tracker-content">
-                    <div className="order">
-                        <button className="order--button" onClick={this.changeOrderByName}>Order by name </button>
-                        <button className="order--button" onClick={this.changeOrderByPriority}> Order by priority </button>
+                    <div className="input">
+                        <div className="column">
+                            <p className="column_title">Name</p>
+                            <input className="inputFormName input-field" placeholder="Name"
+                                   value={this.state.inputValueName} onChange={this.updateTaskName} />
+                        </div>
+                        <div className="column">
+                            <p className="column_title">Priority</p>
+                            <select className="inputValuePriority input-field" placeholder="1"
+                                    value={this.state.inputValuePriority} onChange={this.updateTaskPriority}>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div className="column">
+                            <p className="column_title" >Description</p>
+                            <input className="inputFormDescription input-field" placeholder="Description"
+                                      value={this.state.inputValueDescription} onChange={this.updateTaskDescription} />
+                        </div>
+                        <br/>
+                        <button className="button add__button" onClick={this.addTask}>Add task</button>
+                        <div className="column order">
+                            <p className="column_title" >Order by</p>
+                            <span>
+                                <button
+                                    className={`button order__button " ${this.state.sortByName ? "order__button_selected" : ""}`}
+                                    onClick={this.changeOrderByName}>Name</button>
+                                <button
+                                    className={`button order__button " ${this.state.sortByName ? "" : "order__button_selected"}`}
+                                    onClick={this.changeOrderByPriority}>Priority</button>
+                            </span>
+                        </div>
                     </div>
                     <ul className="task-list">
                         {this.state.tasks.map((value) => {
                             return <li key={value.id} className="task-list_item">
                                 <span className="task-list_priority">
-                                    {this.state.priorityLabels[value.priority] ? this.state.priorityLabels[value.priority] : this.state.priorityLabels[0]}
+                                    {value.priority} &#8226;
                                 </span>
                                 <span className="task-list_name"> {value.name}</span>
                                 <div className="task-list_description">{value.description}</div></li>
                         })}
                     </ul>
-                    <div className="input">
-                        <p className="input-title"> Add new task</p>
-                        <input className="inputFormName input-field" placeholder="Name" value={this.state.inputValueName} onChange={this.updateTaskName} />
-                        <input className="inputValuePriority input-field" placeholder="Priority" value={this.state.inputValuePriority} onChange={this.updateTaskPriority} />
-                        <textarea className="inputFormDescription input-field" placeholder="Description" value={this.state.inputValueDescription} onChange={this.updateTaskDescription} />
-                        <button className="order--button" onClick={this.addTask}> Add task</button>
-                    </div>
                 </div>
             </div>
         );

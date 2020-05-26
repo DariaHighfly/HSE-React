@@ -3,35 +3,55 @@
     justify-content: center;
     align-items: center;
     background-color: #515969;
-    border: 5px inset #2882A4;
+    border: 2px inset #f1f1f1;
     border-radius: 8px;
+    margin-top: 10px;
 }
 
 .tracker-content {
     padding: 15px;
-    min-height: 400px;
-    max-width: 300px;
+    min-height: 600px;
+    width: 700px;
 }
 
 .order {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left: 40px;
 }
-
-.order--button {
-    background:linear-gradient(to bottom, #75bce0 5%, #186ca8 100%);
-    background-color:#75bce0;
+.button {
+    background-color: #d7d7d7;
     border-radius:3px;
     border: none;
     cursor:pointer;
-    color:#ffffff;
+    color: #161921;
     font-family:Arial;
-    font-size:12px;
+    font-size:13px;
+    height: 29px;
     padding:5px 5px;
-    margin: 5px;
     text-decoration:none;
     outline: none;
+}
+
+.order__button {
+    margin-left: 10px;
+}
+
+.order__button:first-child {
+    margin-left: 0;
+}
+
+.order__button_selected {
+    background-color: #97a5ba;
+}
+
+.add__button {
+    margin: 22px 5px 5px 5px;
+}
+
+.add__button:active {
+    background-color: #97a5ba;
 }
 
 .task-list {
@@ -52,6 +72,9 @@
 }
 
 .input {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
     padding: 0 5px 0 15px;
 }
 
@@ -64,19 +87,26 @@
 
 .input-title {
     font-size: 18px;
-    padding: 0;
-    margin: 2px;
+    padding: 5px 5px 5px 15px;
+    margin: 0;
 }
 
 .inputValuePriority {
     max-width: 50px;
-    margin-left: 10px;
+    height: 30px;
 }
 
-.inputFormDescription {
-    height: 40px;
-    width: 200px;
-    margin: 10px 0 10px 0;
-    text-align: start;
-    resize: none;
+.column {
+    margin: 0 0 0 10px;
 }
+
+.input :first-child {
+    margin-left: 0;
+}
+
+.column_title {
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+}
+
